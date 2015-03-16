@@ -13,11 +13,11 @@ class TasksController < ApplicationController
 
   # Create a new task - post
   def create
-    binding.pry
     @Task = Task.create(task_params)
-    if(@Task)
-      binding.pry
+    if(@Task.errors.empty?)
+      redirect_to root_path
     else
+      flash.now[:error] = "There were errors creating your task. Please try again"
       render "new"
     end
   end

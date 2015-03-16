@@ -8,7 +8,9 @@
         = task.duration
       .taskDetails
         = task.description
+
+  = link_to "Create Task", new_task_path, class: "btn btn-warning"
 - else
-%p
-  No tasks currently available.
-  = link_to "Create taks", new_task_path
+  %p
+    No tasks currently available.
+    = link_to "Create taks", new_task_path, class: "btn btn-success"
