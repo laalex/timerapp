@@ -48,3 +48,6 @@ gem 'pry'
 
 # MySQL Gem
 gem 'mysql2'
+
+#HAML
+gem "haml-rails"
