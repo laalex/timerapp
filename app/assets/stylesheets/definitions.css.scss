@@ -1,0 +1,65 @@
+/**
+* Copyright github.com/laalex
+* Author: Alexandru Lamba
+* Version: 1.0
+*/
+// Default Colours
+$white: #fff;
+$black: #000;
+// Flat UI Colours
+$darkMidnightBlue: #202E3D;
+$midnightBlue: #2c3e50;
+$greenSea: #16a085;
+$instagramBrown: #675144;
+$wisteria: #8e44ad;
+$darkGrey: #eaeaea;
+$lightGrey: #f1f1f1;
+$alizarin: #e74c3c;
+$belizeHole: #2980b9;
+$emerald: #2ecc71;
+$pomegranate: #c0392b;
+$pumpkin: #d35400;
+$orange: #f39c12;
+$nephritis: #27ae60;
+
+// Default sizes
+$siteWidth: 1000px;
+$header: 100px;
+$videoTypeContainer: 250px;
+
+// Mixins
+@mixin rotate($time){
+  -webkit-animation:spin $time linear infinite;
+  -moz-animation:spin $time linear infinite;
+  animation:spin $time linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@mixin noBorders{
+  border: none !important;
+  border-radius:0 !important;
+  outline: none !important;
+}
+
+@mixin borderRadiusLeft($size){
+  border-top-left-radius: $size;
+  border-bottom-left-radius: $size;
+}
+
+@mixin borderRadiusRight($size){
+  border-top-right-radius: $size;
+  border-bottom-right-radius: $size;
+}
+
+// Fonts
+$openSans: 'Open Sans', sans-serif;
+// Open Sans font weights
+$semibold: 600;
+$bold: 700;
+$normal: 400;
+$light: 300;
+
+// Shadows
+$dropShadow: 0px 0px 3px #000;
