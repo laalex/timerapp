@@ -1,0 +1,17 @@
+%a{href: "/"}
+  Go back
+
+.newTaskForm
+  %br
+
+  = form_for :task, url: '/tasks' do |f|
+    = f.label :name, "Task name"
+    = f.text_field :name,  class: "form-control"
+    %br
+    = f.label :duration, "Select duration"
+    = f.text_field :duration, class: "form-control"
+    %br
+    = f.label :description, "Task description"
+    = f.text_area :description, class: "form-control"
+    %br
+    = f.submit "Create task", class: "btn btn-success"

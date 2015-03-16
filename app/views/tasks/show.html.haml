@@ -1,1 +1,14 @@
 %h1 Current tasks
+- if @Tasks
+  - @Tasks.each do |task|
+    .task
+      .taskName
+        = task.name
+      .taskDuration
+        = task.duration
+      .taskDetails
+        = task.description
+- else
+%p
+  No tasks currently available.
+  = link_to "Create taks", new_task_path

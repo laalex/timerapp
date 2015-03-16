@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
+  # Application root
   root "tasks#show"
 
-  namespace :tasks do
-    resources :tasks
-  end
+  # Tasks routes
+  resources :tasks
 end
