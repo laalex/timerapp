@@ -1,5 +1,4 @@
-%a{href: "/"}
-  Go back
+= link_to "List tasks", root_url, class: "btn btn-default"
 
 .newTaskForm
   %br
@@ -9,8 +8,15 @@
     = f.text_field :name,  class: "form-control"
 
     %br
-    = f.label :duration, "Select duration"
-    = f.text_field :duration, class: "form-control"
+    = f.label :duration, "Task duration"
+    %br
+    .col-xs-1
+      = f.text_field :hh, placeholder: "HH", class: "form-control"
+    .col-xs-1
+      = f.text_field :mm, placeholder: "MM", class: "form-control"
+    .col-xs-1
+      = f.text_field :ss, placeholder: "SS", class: "form-control"
+    %br
 
     %br
     = f.label :description, "Task description"

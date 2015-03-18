@@ -1,0 +1,27 @@
+%a{href: "/"}
+  Go back
+
+.newTaskForm
+  %br
+
+  = form_for @Task, url: "/tasks/#{@Task.id}", method: "put" do |f|
+    = f.label :name, "Task name"
+    = f.text_field :name,  class: "form-control"
+
+    %br
+    = f.label :duration, "Task duration"
+    %br
+    .col-xs-1
+      = text_field "task", "hh", placeholder: "HH", class: "form-control", value: @Duration[:hh]
+    .col-xs-1
+      = text_field "task", "mm", placeholder: "MM", class: "form-control", value: @Duration[:mm]
+    .col-xs-1
+      = text_field "task", "ss", placeholder: "SS", class: "form-control", value: @Duration[:ss]
+    %br
+
+    %br
+    = f.label :description, "Task description"
+    = f.text_area :description, class: "form-control"
+
+    %br
+    = f.submit "Update task", class: "btn btn-success"

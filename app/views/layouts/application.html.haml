@@ -7,8 +7,14 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
+    - if !flash.empty?
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert alert-#{name}"
+    .navbar.navbar-inverse
+      .container
+        .pull-left
+          = link_to "Create Task", new_task_path
+        .pull-right
+          Total tasks time: #{show_formatted_duration(@TotalDuration)}
     .container
-      - if !flash.empty?
-        - flash.each do |name, msg|
-          = content_tag :div, msg, class: "alert alert-#{name}"
       = yield

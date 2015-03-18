@@ -1,3 +1,27 @@
-// Place all the styles related to the Tasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.task{
+  margin-bottom:20px;
+  background: #FAFAFA;
+  padding:10px;
+  border-radius:5px;
+  .taskName{
+    width:300px;
+    font-style: italic;
+    margin-bottom:10px;
+  }
+  .taskDuration{
+    margin-bottom: 10px;
+  }
+  .taskDetails{
+    line-height: 14px;
+    font-size:12px;
+    min-height: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+  }
+  .taskDetails.collapsed{max-height:44px;}
+  .taskDetails.opened{ max-height: inherit;}
+  .taskEdit{
+    margin-top:20px;
+  }
+}

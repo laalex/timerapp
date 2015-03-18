@@ -9,3 +9,20 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "definitions";
+@import "tasks";
+
+.navbar {
+  @include noBorders;
+  padding-top: 15px;
+  a {
+    color: #fff;
+    text-decoration: none;
+    &:hover{
+    color: $alizarin;
+    }
+  }
+
+}
+.navbar-inverse{color: $white;}
+.col-xs-1{padding-left:0;}
+.alert{margin:0; text-align: center;}

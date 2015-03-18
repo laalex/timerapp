@@ -1,16 +1,18 @@
-%h1 Current tasks
+- # Show the list of all tasks
 - if @Tasks
   - @Tasks.each do |task|
     .task
       .taskName
-        = task.name
+        #{task.name}
       .taskDuration
-        = task.duration
-      .taskDetails
-        = task.description
-
-  = link_to "Create Task", new_task_path, class: "btn btn-warning"
-- else
-  %p
-    No tasks currently available.
-    = link_to "Create taks", new_task_path, class: "btn btn-success"
+        Time left:
+        %span.taskCountdown{data: {id: task.id}} #{show_formatted_duration(task.duration)}
+      .taskDetails.collapsed
+        #{task.description}
+      .taskEdit
+        - # Counter action
+        .btn.btn-success.btn-xs.startCounter{data: {id: task.id}}
+          %i.fa.fa-play
+            Start Counter
+        = link_to "Edit this task", edit_task_path(task.id), class: "btn btn-default btn-xs"
+        = link_to "Remove task", task, :method => :delete, class: "btn btn-danger btn-xs"
