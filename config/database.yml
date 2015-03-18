@@ -15,7 +15,7 @@ test:
 
 staging:
   <<: *default
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysql.sock
 production:
   <<: *default
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysql.sock
