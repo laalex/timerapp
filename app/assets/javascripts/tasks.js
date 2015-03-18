@@ -1,2 +1,9 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+// TasksController module
+// Inited when Window is ready
+$(window).ready(function(){
+
+  Core.init();
+  UI.init();
+  TaskModule.init();
+
+});
