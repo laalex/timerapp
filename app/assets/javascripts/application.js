@@ -3,6 +3,7 @@
 //= require tasks
 // --------- MODULES --------
 //= require mustache
+//= require underscore
 //= require modules/render.module
 //= require modules/core.module
 //= require modules/task.module

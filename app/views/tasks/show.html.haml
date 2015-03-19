@@ -6,9 +6,9 @@
         .taskName
           Task: #{task.name}
         .taskDuration
-          %span.taskCountdown{data: {id: task.id}} #{show_formatted_duration(task.duration)}
+          %span.taskCountdown{data: {id: task.id, duration: task.duration}} #{show_formatted_duration(task.duration)}
         .taskActions
-          %a.startCounter{data: {id: task.id}, href: "#"}
+          %a.startCounter{data: {id: task.id, duration: task.duration}, href: "#"}
             Start
           %span -
           %a.stopCounter{data: {id: task.id}, href: "#"}

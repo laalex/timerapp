@@ -11,13 +11,6 @@ var UI  = (function (module) {
     _attachEventListenrs();
   };
 
-  // Update the task count on an interface
-  var _updateTaskCountInterface = function(id, duration){
-    // Find the element with ID
-
-    // Update the duration
-  };
-
   // Attach event listeners
   var _attachEventListenrs = function(){
     // Show the create task form
@@ -73,6 +66,19 @@ var UI  = (function (module) {
         }
       });
     });
+
+    $( document ).on("click", "a.startCounter", function(){
+      var _id = $( this ).data('id');
+      var _duration = parseInt($( this ).data('duration'));
+      // Start counting for this one
+      TaskModule.startCounter(_id, _duration);
+    });
+
+    $( document ).on("click", "a.stopCounter", function(){
+      var _id = $( this ).data('id');
+      // Stop counting for this one
+      TaskModule.stopCounter(_id);
+    });
   };
 
   var createTask = function(formData){
@@ -112,6 +118,12 @@ var UI  = (function (module) {
     if(formData.ss < 0 || formData.ss > 60 || formData.ss == "") valid = false;
     // Return true or false
     return valid;
+  };
+
+  var _updateTaskCount = function(id, duration, formatted){
+    var _element = $(".taskCountdown[data-id='" + id +  "']");
+    //$(_element).data(duration, duration);
+    $(_element).html(formatted);
   }
 
   // Popups UI
@@ -137,7 +149,12 @@ var UI  = (function (module) {
 
   module.performTaskvalidation = function(formData){
     return performTaskValidation(formData);
+  };
+
+  module.updateTaskCount = function(id, duraiton, formatted){
+    _updateTaskCount(id, duraiton, formatted);
   }
+
   // Popup UI object
   module.popup = _popups;
 

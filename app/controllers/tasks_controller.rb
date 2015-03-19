@@ -43,11 +43,18 @@ class TasksController < ApplicationController
     }
     if(Task.find(params[:id]).update_attributes(params_for_task))
       # Task saved
-      flash[:success] = "The task has been updated successfully"
-      redirect_to root_path
+      render json: {status: "success", task: @Task.find(params[:id])}.to_json # return the updated task
     else
-      flash.now[:danger] = "Cannot update the task. Please try again"
-      render "edit"
+      render json: {status: "failed", message: "The task has failed to be updated"}.to_json
+    end
+  end
+
+  def update_duration
+    if(Task.find(params[:id]).update_attributes(duration: params[:duration]))
+      # Task saved
+      render json: {status: "success", task: Task.find(params[:id])}.to_json # return the updated task
+    else
+      render json: {status: "failed", message: "The task has failed to be updated"}.to_json
     end
   end
 
