@@ -122,7 +122,7 @@ var UI  = (function (module) {
 
   var _updateTaskCount = function(id, duration, formatted){
     var _element = $(".taskCountdown[data-id='" + id +  "']");
-    //$(_element).data(duration, duration);
+    $(_element).data("duration", duration);
     $(_element).html(formatted);
   }
 
