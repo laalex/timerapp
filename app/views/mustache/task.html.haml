@@ -1,0 +1,17 @@
+<li class="task taskEntry" data-id="{{id}}">
+<div class="taskName">Task: {{name}}</div>
+<div class="taskDuration">
+<span class="taskCountdown">{{formatted_duration}}</span>
+</div>
+<div class="taskActions">
+<a href="#" class="startCounter" data-id="{{id}}">Start</a>
+%span -
+<a href="#" class="stopCounter" data-id="{{id}}">Pause</a>
+%span -
+<a href="#" class="editTimer" data-id="{{id}}">Edit timer</a>
+%span -
+<a href="#" class="deleteTask" data-id="{{id}}">Delete task</a>
+</div>
+<div class="taskDetails collapsed">Notice: {{description}}</div>
+
+</li>

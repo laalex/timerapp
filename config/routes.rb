@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   # Tasks routes
   resources :tasks
+
+  # Get mustache template
+  get '/mustache/template/:name', to: "mustache#get_template"
 end

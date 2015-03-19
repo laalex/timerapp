@@ -12,6 +12,6 @@ module TasksHelper
     minutes = sprintf '%02d', minutes
     seconds = sprintf '%02d', seconds
     # Return HH, MM, SS
-    "#{hours}:#{minutes}:#{seconds}"
+    "#{hours} hr #{minutes} min #{seconds} sec"
   end
 end

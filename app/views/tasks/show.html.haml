@@ -1,18 +1,21 @@
 - # Show the list of all tasks
 - if @Tasks
-  - @Tasks.each do |task|
-    .task
-      .taskName
-        #{task.name}
-      .taskDuration
-        Time left:
-        %span.taskCountdown{data: {id: task.id}} #{show_formatted_duration(task.duration)}
-      .taskDetails.collapsed
-        #{task.description}
-      .taskEdit
-        - # Counter action
-        .btn.btn-success.btn-xs.startCounter{data: {id: task.id}}
-          %i.fa.fa-play
-            Start Counter
-        = link_to "Edit this task", edit_task_path(task.id), class: "btn btn-default btn-xs"
-        = link_to "Remove task", task, :method => :delete, class: "btn btn-danger btn-xs"
+  %ul#tasksList
+    - @Tasks.each do |task|
+      %li.task.taskEntry{data: {id: task.id}}
+        .taskName
+          Task: #{task.name}
+        .taskDuration
+          %span.taskCountdown{data: {id: task.id}} #{show_formatted_duration(task.duration)}
+        .taskActions
+          %a.startCounter{data: {id: task.id}, href: "#"}
+            Start
+          %span -
+          %a.stopCounter{data: {id: task.id}, href: "#"}
+            Pause
+          %span -
+          = link_to "Edit timer", "#", class: "editTimer", data: {id: task.id}
+          %span -
+          = link_to "Delete task", "#", class: "deleteTask", data: {id: task.id}
+        .taskDetails.collapsed
+          Note: #{task.description}

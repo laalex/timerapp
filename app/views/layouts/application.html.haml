@@ -10,11 +10,35 @@
     - if !flash.empty?
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert alert-#{name}"
-    .navbar.navbar-inverse
-      .container
-        .pull-left
-          = link_to "Create Task", new_task_path
-        .pull-right
-          Total tasks time: #{show_formatted_duration(@TotalDuration)}
     .container
+      %ul
+        %li
+          = link_to "Click here to add a new task", "#", id: "showCreationForm"
+
+          .newTaskForm#taskCreationForm
+            = form_for :task, url: '/tasks' do |f|
+              = f.label :name, "Task:"
+              = f.text_field :name, class: "input", placeholder: "Enter your task's name here, then use the timer below to assign your task a time", id: "taskName"
+
+              %br
+              = f.text_field :hh, placeholder: "00", class: "input small", id: "taskHours"
+              %span hr
+              = f.text_field :mm, placeholder: "00", class: "input small", id: "taskMinutes"
+              %span min
+              = f.text_field :ss, placeholder: "00", class: "input small", id: "taskSeconds"
+              %span sec
+
+              %br
+
+              = f.label :description, "Note:"
+              %br
+              = f.text_area :description, placeholder: "This is where you can write whatever you want. When you've done, click Create below to add this task", class: "input fullwidth", id: "taskNote"
+
+              %br
+              = f.submit "Create", class: "btn-link"
+              %span -
+              = link_to "Cancel", "#", id:"hideCreationForm"
+        %li
+          Total: #{show_formatted_duration(@TotalDuration)}
+      - # Yeld the content
       = yield
