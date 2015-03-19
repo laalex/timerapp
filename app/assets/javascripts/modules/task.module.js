@@ -40,8 +40,9 @@ var TaskModule = (function (module) {
     }
     // Clear the interval
     window.clearInterval(_task[0].interval);
-    // return the current duration left
-    return _task.duration;
+    // remove the task from queue
+    _countersQueue = _.filter(_countersQueue, _task);
+
   };
 
 
