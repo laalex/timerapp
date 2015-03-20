@@ -69,7 +69,7 @@ var UI  = (function (module) {
 
     $( document ).on("click", "a.startCounter", function(){
       var _id = $( this ).data('id');
-      var _duration = parseInt($( this ).data('duration'));
+      var _duration = parseInt($( this ).attr('data-duration'));
       // Start counting for this one
       TaskModule.startCounter(_id, _duration);
     });
@@ -121,9 +121,8 @@ var UI  = (function (module) {
   };
 
   var _updateTaskCount = function(id, duration, formatted){
-    var _element = $(".taskCountdown[data-id='" + id +  "']");
-    $(_element).data("duration", duration);
-    $(_element).html(formatted);
+    $("span.taskCountdown[data-id='" + id +  "']").html(formatted);
+    $("a.startCounter[data-id='" + id + "']").attr("data-duration", duration);
   }
 
   // Popups UI
@@ -151,8 +150,8 @@ var UI  = (function (module) {
     return performTaskValidation(formData);
   };
 
-  module.updateTaskCount = function(id, duraiton, formatted){
-    _updateTaskCount(id, duraiton, formatted);
+  module.updateTaskCount = function(id, duration, formatted){
+    _updateTaskCount(id, duration, formatted);
   }
 
   // Popup UI object

@@ -78,11 +78,11 @@ var TaskModule = (function (module) {
   module.init = function(){_init();};
 
   module.startCounter = function(id, duration){
-    return _startCounter(id, duration);
+  _startCounter(id, duration);
   }
 
   module.stopCounter = function(id){
-    return _stopCounter(id);
+    _stopCounter(id);
   }
 
 
