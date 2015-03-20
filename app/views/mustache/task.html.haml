@@ -1,10 +1,10 @@
 <li class="task taskEntry" data-id="{{id}}">
 <div class="taskName">Task: {{name}}</div>
 <div class="taskDuration">
-<span class="taskCountdown" data-id="{{id}}" data-duration="{{duration}}">{{formatted_duration}}</span>
+<span class="taskCountdown" data-id="{{id}}"">{{formatted_duration}}</span>
 </div>
 <div class="taskActions">
-<a href="#" class="startCounter" data-id="{{id}}">Start</a>
+<a href="#" class="startCounter" data-id="{{id}} data-duration="{{duration}}">Start</a>
 %span -
 <a href="#" class="stopCounter" data-id="{{id}}">Pause</a>
 %span -

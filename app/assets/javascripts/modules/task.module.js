@@ -10,6 +10,7 @@ var TaskModule = (function (module) {
   var _countersQueue = [];
 
   var _startCounter = function(id, duration){
+    if(duration <= 0) return false; // Return false if duration is 0
     var _task = _.where(_countersQueue, {id: id});
     if(_task.length > 0) return false;
     var _counterObject = {
